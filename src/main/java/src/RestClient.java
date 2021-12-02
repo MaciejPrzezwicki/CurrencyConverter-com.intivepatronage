@@ -1,6 +1,5 @@
 package src;
 
-
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -8,6 +7,9 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
@@ -41,10 +43,38 @@ public class RestClient {
         } while (onceAgain.equals("Y"));
         System.out.println("Dziękujemy za skorzystanie z naszego kantora");
 
+
+        //dodawanie do bazy danych
+        try {
+            Class.forName("org.postgresql.Driver");
+
+            Connection connection = null;
+
+
+
+            connection = DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/postgres","postgres", "postgreSQL");
+//wyświetli czy połączono z bazą danych
+            System.out.println("Connected to the PostgreSQL server successfully.");
+            connection.close();
+
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
+            System.out.append("no driver");
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+            System.out.append("wrong data");
+        }
         
 
 
     }
+
+
 
 //Wybieranie waluty do przeliczenia
     public static int chooseCurrency() {
