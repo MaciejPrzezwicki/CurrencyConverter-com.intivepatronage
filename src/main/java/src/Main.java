@@ -19,6 +19,7 @@ public class Main {
                 System.out.println("Wybierz operację, której chcesz dokonać: ");
                 System.out.println("-> Poznać kurs waluty: wybierz 1");
                 System.out.println("-> Wymienić zadaną kwotę: wybierz 2");
+
                 Scanner scanner = new Scanner(System.in);
                 int operation = scanner.nextInt();
                 switch (operation) {
