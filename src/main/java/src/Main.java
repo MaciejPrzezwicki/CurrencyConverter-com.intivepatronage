@@ -28,6 +28,8 @@ public class Main {
                 case 2:
                     ExchangeCurrency.chooseAmoutOfCurrency();
                     break;
+                default:
+                    System.out.println("Podano niewłaściwe dane");
             }
 
             System.out.println("Czy chcesz wykonać kolejną operację? Y/N");

@@ -24,39 +24,7 @@ public class ChooseCurrency {
 
     public static void exchangeRate() throws IOException, SQLException {
         System.out.println("Wybierz walutę, której aktualny kurs chcesz poznać:");
-        int number = chooseCurrency();
-        String properCurrency = " ";
-        switch (number) {
-            case 1:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/thb/";
-                break;
-            case 2:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/eur";
-                break;
-            case 3:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/chf/";
-                break;
-            case 4:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/huf/";
-                break;
-            case 5:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/gbp/";
-                break;
-            case 6:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/jpy/";
-                break;
-            case 7:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/czk/";
-                break;
-            case 8:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/nok/";
-                break;
-            case 9:
-                properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/ils/";
-                break;
-            default:
-                System.out.println("nie wybrano żadnej waluty");
-        }
+        String properCurrency = CurrencySelection.currencySelection();
 
 
         URL url = new URL(properCurrency);
@@ -76,12 +44,15 @@ public class ChooseCurrency {
         double endRateUSD = choosenCurrency / usdRates;
 //ściągnięcie stream readerem nazwy wybranej waluty
         String name = currencyValue.getCode();
+//dodawanie do bazy danych kursu wybranej waluty w przeliczeniu na USD
         ClientDB.addToDB(name, endRateUSD);
+        System.out.println("kurs " + name + " wynosi: ");
+
+
 
 //podawanie kursu wybranej waluty w przeliczeniu na różne inne z zaokrągleniem kursu do 4 miejsc po przecinku
 
         String[] isoCodes = {"thb", "eur", "chf", "huf", "gbp", "jpy", "czk", "nok", "ils"};
-        System.out.println("kurs " + name + " wynosi: ");
         for (String insideCode : isoCodes) {
             URL urlIso = new URL("http://api.nbp.pl/api/exchangerates/rates/a/" + insideCode);
             InputStreamReader readerIso = new InputStreamReader(urlIso.openStream());

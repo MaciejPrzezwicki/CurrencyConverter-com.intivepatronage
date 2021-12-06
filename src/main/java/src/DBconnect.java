@@ -19,23 +19,20 @@ public class DBconnect {
 
                 connection = DriverManager.getConnection(
                         "jdbc:postgresql://localhost:5432/postgres", "postgres", "postgreSQL");
-                //wyświetli czy połączono z bazą danych
-                //System.out.println("Connected to the PostgreSQL server successfully.");
-                //connection.close();
 
                 if(connection != null) {
-                    System.out.println("connection success");
+                    System.out.println("połączono");
                 } else {
-                    System.out.println("connection failed");
+                    System.out.println("połączenie nieudane");
                 }
 
             } catch (ClassNotFoundException e) {
 
                 e.printStackTrace();
-                System.out.append("no driver");
+                System.out.append("brak sterownika");
             } catch (SQLException e) {
                 e.printStackTrace();
-                System.out.append("wrong data");
+                System.out.append("złe dane");
             }
             return connection;
         }
