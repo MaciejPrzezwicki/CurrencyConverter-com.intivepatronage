@@ -3,7 +3,9 @@ PL Version
 
 Uruchomienie:
 -Program został napisany w  Java 13 i postgreSQL wersja 14
+
 -Komunikacja w programie odbywa się w języku polskim, angielska wersja dostępna wkrótce
+
 -Do uruchomienia programu należy:
 1) Ściągnąć to repozytorium.
 2) Ściągnąć oprogramowanie postgreSQL. ( https://www.postgresql.org/ )
@@ -44,7 +46,9 @@ ENG Version
 
 Getting Started:
 -This program was written in Java 13 and postgreSQL 14
+
 -Communication in the program is in Polish, the English version will be available soon.
+
 -To run the program:
 1) download this repository.
 2) Download postgreSQL software. ( https://www.postgresql.org/ )
