@@ -21,7 +21,8 @@ public class ClientDB {
             statement.setDouble(2, endRate);
             statement.setDouble(3, endRate);
             statement.executeUpdate();
-            System.out.println("value added successfully");
+// możliwość sprawdzenia w programie czy kurs został dodany przez odkomentowanie następnej linijki
+// System.out.println("value added successfully");
         } catch (Exception e) {
             e.printStackTrace();
         }

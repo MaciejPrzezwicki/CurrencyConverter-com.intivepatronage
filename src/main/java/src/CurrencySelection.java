@@ -1,20 +1,13 @@
 package src;
 
-import java.util.Scanner;
-
 import static src.ChooseCurrency.chooseCurrency;
 
 public class CurrencySelection {
     public static String currencySelection() {
-        int number = chooseCurrency();
+
         String properCurrency = " ";
 
-
-
-
-
-
-
+        int number = chooseCurrency();
             switch (number) {
                 case 1:
                     properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/thb/";
@@ -43,12 +36,7 @@ public class CurrencySelection {
                 case 9:
                     properCurrency = "http://api.nbp.pl/api/exchangerates/rates/a/ils/";
                     break;
-                default:
-                    System.out.println("nie wybrano żadnej waluty");
-                    System.out.println("czy chcesz ponownie wybrać walutę? Y/N");
-                    Scanner scanner = new Scanner(System.in);
-                    String answer = scanner.next();
-                    return answer;
+
             }
 
             return properCurrency;

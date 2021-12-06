@@ -20,11 +20,12 @@ public class DBconnect {
                 connection = DriverManager.getConnection(
                         "jdbc:postgresql://localhost:5432/postgres", "postgres", "postgreSQL");
 
-                if(connection != null) {
-                    System.out.println("połączono");
-                } else {
-                    System.out.println("połączenie nieudane");
-                }
+//Możliwość wyświetlenia w programie czy nastąpiło poprawne połączenie z bazą po odkomentowaniu poniższego if-else'a
+//                if(connection != null) {
+//                    System.out.println("połączono");
+//                } else {
+//                    System.out.println("połączenie nieudane");
+//                }
 
             } catch (ClassNotFoundException e) {
 
